@@ -29,7 +29,7 @@ client.on(sdk.RoomEvent.Timeline, (event: sdk.MatrixEvent, room?: sdk.Room, toSt
 
 	const msgContent: string = event.getContent().body ?? '';
 	if (msgContent.length > 1 && msgContent[0] === CONFIG.cmdPrefix) {
-		const rawCmd = msgContent.substring(1);
+		const rawCmd = msgContent.substring(1).trim();
 		const handler = getCommandHandler(rawCmd);
 		if (handler) handler(rawCmd, event, room);
 	}

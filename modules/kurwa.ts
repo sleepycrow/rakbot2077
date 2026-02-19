@@ -6,7 +6,7 @@ const IMAGE_URL = 'mxc://tchncs.de/c3d1fd74bcaf769f84d59fe1370d3e79a11fc7a720244
 const definition: ModuleDefinition = {
 	name: 'kurwa',
 	chatCommands: [{
-		regex: /^kurwa/,
+		regex: /^kurwa$/,
 		usageExample: 'kurwa',
 		usageDescription: 'ty no wiesz ten no ten teges no kurwa',
 		handler: (_rawCmd: string, _event: MatrixEvent, room: Room) => {
