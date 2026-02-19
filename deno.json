@@ -1,0 +1,11 @@
+{
+  "tasks": {
+    "dev": "deno run --watch main.ts",
+    "auth": "deno run --env-file scripts/auth.ts",
+    "start": "deno run -A --env-file main.ts"
+  },
+  "imports": {
+    "@std/assert": "jsr:@std/assert@1",
+    "matrix-js-sdk": "npm:matrix-js-sdk@^41.0.0-rc.0"
+  }
+}
