@@ -28,7 +28,7 @@ client.on(sdk.RoomEvent.MyMembership, (room: sdk.Room, membership: sdk.Membershi
 	}
 });
 
-client.on(sdk.RoomEvent.Timeline, (event: sdk.MatrixEvent, room?: sdk.Room, toStartOfTimeline?: boolean) => {
+client.on(sdk.RoomEvent.Timeline, async (event: sdk.MatrixEvent, room?: sdk.Room, toStartOfTimeline?: boolean) => {
 	if (toStartOfTimeline || !room || !isUserMessage(event)) return;
 
 	const msgContent: string = event.getContent().body ?? '';
@@ -41,7 +41,8 @@ client.on(sdk.RoomEvent.Timeline, (event: sdk.MatrixEvent, room?: sdk.Room, toSt
 
 				if (handlerResult instanceof Promise) {
 					client.sendTyping(room.roomId, true, 10000);
-					handlerResult.finally(() => client.sendTyping(room.roomId, false, 0));
+					await handlerResult;
+					client.sendTyping(room.roomId, false, 0);
 				}
 			} catch (e) {
 				console.error('[ERR] Error occured while running command "%s"', rawCmd, e);
