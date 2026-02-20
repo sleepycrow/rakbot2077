@@ -6,8 +6,6 @@
   },
   "imports": {
     "@std/assert": "jsr:@std/assert@1",
-    "@types/jsdom": "npm:@types/jsdom@^27.0.0",
-    "jsdom": "npm:jsdom@^28.1.0",
     "matrix-js-sdk": "npm:matrix-js-sdk@^41.0.0-rc.0"
   }
 }
