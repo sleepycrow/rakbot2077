@@ -5,6 +5,7 @@ import { CONFIG } from "./config.ts";
 import { isUserMessage } from "./utils/eventUtils.ts";
 
 // Module imports -----
+import helpModule from "./modules/help.ts";
 import emojiModule from "./modules/emoji.ts";
 import kurwaModule from "./modules/kurwa.ts";
 import antiRakModule from "./modules/antirak.ts";
@@ -12,6 +13,7 @@ import antiRakModule from "./modules/antirak.ts";
 
 await initClient();
 await loadModules([
+	helpModule,
 	emojiModule,
 	kurwaModule,
 	antiRakModule,

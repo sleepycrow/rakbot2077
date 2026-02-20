@@ -23,3 +23,7 @@ export function getCommandHandler(rawCommand: string): ChatCommandHandler | unde
 		.find(commandDef => commandDef?.regex.test(rawCommand))
 		?.handler;
 }
+
+export function getLoadedModules(): ModuleDefinition[] {
+	return [...loadedModules];
+}
