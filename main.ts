@@ -31,6 +31,18 @@ client.on(sdk.RoomEvent.Timeline, (event: sdk.MatrixEvent, room?: sdk.Room, toSt
 	if (msgContent.length > 1 && msgContent[0] === CONFIG.cmdPrefix) {
 		const rawCmd = msgContent.substring(1).trim();
 		const handler = getCommandHandler(rawCmd);
-		if (handler) handler(rawCmd, event, room);
+		if (handler) {
+			try {
+				const handlerResult = handler(rawCmd, event, room);
+
+				if (handlerResult instanceof Promise) {
+					client.sendTyping(room.roomId, true, 10000);
+					handlerResult.finally(() => client.sendTyping(room.roomId, false, 0));
+				}
+			} catch (e) {
+				console.error('[ERR] Error occured while running command "%s"', rawCmd, e);
+				client.sendNotice(room.roomId, `⚠️ nie wyszło przy robieniu "${rawCmd}" :((`);
+			}
+		}
 	}
 });
