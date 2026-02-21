@@ -11,6 +11,7 @@ import kurwaModule from "./modules/kurwa.ts";
 import antiRakModule from "./modules/antirak.ts";
 import komixxModule from "./modules/komixx.ts";
 import ytongModule from "./modules/ytong.ts";
+import e621Module from "./modules/e621.ts";
 // --------------------
 
 await initClient();
@@ -21,6 +22,7 @@ await loadModules([
 	antiRakModule,
 	komixxModule,
 	ytongModule,
+	e621Module,
 ]);
 
 client.on(sdk.RoomEvent.MyMembership, (room: sdk.Room, membership: sdk.Membership, _prevMembership?: sdk.Membership) => {
