@@ -10,6 +10,7 @@ import emojiModule from "./modules/emoji.ts";
 import kurwaModule from "./modules/kurwa.ts";
 import antiRakModule from "./modules/antirak.ts";
 import komixxModule from "./modules/komixx.ts";
+import ytongModule from "./modules/ytong.ts";
 // --------------------
 
 await initClient();
@@ -19,6 +20,7 @@ await loadModules([
 	kurwaModule,
 	antiRakModule,
 	komixxModule,
+	ytongModule,
 ]);
 
 client.on(sdk.RoomEvent.MyMembership, (room: sdk.Room, membership: sdk.Membership, _prevMembership?: sdk.Membership) => {
