@@ -14,7 +14,7 @@ const definition: ModuleDefinition = {
 			const tags = matches?.[1];
 			if (!tags) return;
 
-			const rawResp = await fetch('https://e621.net/posts.json?tags=' + tags.replaceAll(' ', '+'), {
+			const rawResp = await fetch('https://e621.net/posts.json?tags=' + encodeURIComponent(tags), {
 				headers: { 'User-Agent': 'Rakbot2077/1.0 (by petcryptid)' }
 			});
 			const resp = await rawResp.json();
