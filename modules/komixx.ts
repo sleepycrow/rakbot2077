@@ -1,18 +1,19 @@
 import { MatrixEvent, Room } from "matrix-js-sdk";
+import { JSDOM } from 'jsdom';
 import { ModuleDefinition } from "../interfaces/ModuleDefinition.d.ts";
 import { client } from "../client.ts";
 
 const BASE_URL = 'https://komixxy.pl';
-const IMAGE_REGEX = /src=\"(\/uimages\/[^.]+\.(?:jpg|jpeg|png))\"/gi;
 
 async function getImageUrl(): Promise<string> {
 	const resp = await fetch(`${BASE_URL}/losuj`);
 	const rawText = await resp.text();
+	const dom = new JSDOM(rawText);
 
-	const matches = IMAGE_REGEX.exec(rawText);
-	if (!matches || !matches[1]) throw new Error('could not retrieve image');
+	const imgUrl = dom.window.document.querySelector('.picwrapper img')?.getAttribute('src');
+	if (!imgUrl) throw new Error('could not retrieve image');
 
-	return BASE_URL + matches[1];
+	return BASE_URL + imgUrl;
 }
 
 const definition: ModuleDefinition = {
