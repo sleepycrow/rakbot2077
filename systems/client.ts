@@ -1,5 +1,5 @@
 import * as sdk from 'matrix-js-sdk';
-import { CONFIG } from "./config.ts";
+import { CONFIG } from "../config.ts";
 
 export let START_TIME: Date;
 export let OWN_USER_ID: string | null;

@@ -1,5 +1,5 @@
 import { EventType, MatrixEvent } from "matrix-js-sdk";
-import { OWN_USER_ID, START_TIME } from "../client.ts";
+import { OWN_USER_ID, START_TIME } from "../systems/client.ts";
 
 export function isUserMessage(event: MatrixEvent): boolean {
 	const date = event.getDate();

@@ -1,5 +1,5 @@
-import { ChatCommandHandler } from "./interfaces/ChatCommandDefinition.d.ts";
-import { ModuleDefinition } from "./interfaces/ModuleDefinition.d.ts";
+import { ChatCommandHandler } from "../interfaces/ChatCommandDefinition.js";
+import { ModuleDefinition } from "../interfaces/ModuleDefinition.js";
 
 const loadedModules: ModuleDefinition[] = [];
 

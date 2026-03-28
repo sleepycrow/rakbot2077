@@ -1,6 +1,6 @@
 import { MatrixEvent, Room } from "matrix-js-sdk";
 import { ModuleDefinition } from "../interfaces/ModuleDefinition.d.ts";
-import { client } from "../client.ts";
+import { client } from "../systems/client.ts";
 
 const diacreticsMap: Record<string, string> = {
 	'ą': 'a',

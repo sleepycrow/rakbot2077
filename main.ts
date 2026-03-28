@@ -1,6 +1,6 @@
 import * as sdk from 'matrix-js-sdk';
-import { client, initClient } from "./client.ts";
-import { getCommandHandler, loadModules } from "./moduleManager.ts";
+import { client, initClient } from "./systems/client.ts";
+import { getCommandHandler, loadModules } from "./systems/moduleManager.ts";
 import { CONFIG } from "./config.ts";
 import { isUserMessage } from "./utils/eventUtils.ts";
 

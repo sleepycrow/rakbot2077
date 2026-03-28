@@ -1,6 +1,6 @@
 import { MatrixEvent, Room, RoomEvent } from "matrix-js-sdk";
 import { ModuleDefinition } from "../interfaces/ModuleDefinition.d.ts";
-import { client } from "../client.ts";
+import { client } from "../systems/client.ts";
 import { isUserMessage } from "../utils/eventUtils.ts";
 
 const definition: ModuleDefinition = {

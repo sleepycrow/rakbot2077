@@ -1,8 +1,8 @@
 import { MatrixEvent, Room } from "matrix-js-sdk";
 import { ModuleDefinition } from "../interfaces/ModuleDefinition.d.ts";
-import { getLoadedModules } from "../moduleManager.ts";
+import { getLoadedModules } from "../systems/moduleManager.ts";
 import { CONFIG } from "../config.ts";
-import { client } from "../client.ts";
+import { client } from "../systems/client.ts";
 
 const definition: ModuleDefinition = {
 	name: 'help',
